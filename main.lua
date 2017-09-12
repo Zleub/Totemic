@@ -1,5 +1,11 @@
+-- @Author: Debray Arnaud <adebray>
+-- @Date:   2017-09-12T03:13:09+02:00
+-- @Email:  adebray@student.42.fr
+-- @Last modified by:   adebray
+-- @Last modified time: 2017-09-12T03:16:50+02:00
+
 x_offset, y_offset = 0, 0
-width, height = 3, 24
+width, height = 5, 10
 scale = 10
 nbr = 2048
 
@@ -24,8 +30,8 @@ color_table = {
 }
 
 function love.load()
-	w_count = (love.window.getWidth() / width)
-	h_count = (love.window.getHeight() / height)
+	w_count = (love.graphics.getWidth() / width)
+	h_count = (love.graphics.getHeight() / height)
 
 	canvas_list = {}
 	for i=0, nbr - 1 do
@@ -102,7 +108,7 @@ function love.draw()
 		love.graphics.draw(v, x_offset + x + width * scale * 2, y_offset + y, 0, -scale, scale)
 
 		x = x + (width * scale * 2) + 2
-		if (x + ((width * 2) * scale) >= love.window.getWidth()) then
+		if (x + ((width * 2) * scale) >= love.graphics.getWidth()) then
 			x = 0
 			y = y + (height * scale) + 2
 		end
